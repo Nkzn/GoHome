@@ -61,18 +61,18 @@ public class HomeSetActivity extends MapActivity implements LocationListener {
 			}
 		});
 		
-		// マップ上のオブジェクト用(blocco君)画像の初期化
+		// マップ上のオブジェクト用画像の初期化
 		drawable = getResources().getDrawable(R.drawable.home);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         // オーバーレイの初期化
         lo = new LocationOverlay(this, drawable);
-        // blocco君の位置の初期化
+        // 家の位置の初期化
         lo.homePoint = new GeoPoint(DEFAULT_LATITUDE, DEFAULT_LONGUITUDE);
         
         mapView.getOverlays().add(lo);
         mapView.getController().setCenter(lo.homePoint);
         
-        addBloccoDefault();
+        addHomeDefault();
         
         setBtn = (Button)findViewById(R.id.setbutton);
         setBtn.setOnClickListener(new OnClickListener() {	
@@ -127,9 +127,9 @@ public class HomeSetActivity extends MapActivity implements LocationListener {
     }
     
     /**
-     * 地図上のblocco君オブジェクトを初期化
+     * 地図上の家オブジェクトを初期化
      */
-    private void addBloccoDefault(){
+    private void addHomeDefault(){
 		GeoPoint gp = mapView.getMapCenter();		
 		mapView.getController().setZoom(17);
 		OverlayItem item = new OverlayItem(gp,"","");
@@ -185,7 +185,7 @@ public class HomeSetActivity extends MapActivity implements LocationListener {
 	        mapView.getOverlays().add(lo);
 	        mapView.getController().setCenter(lo.homePoint);
 	        
-	        addBloccoDefault();
+	        addHomeDefault();
 	        hideProgressDialog();
 	        
 			firstflag = false;
